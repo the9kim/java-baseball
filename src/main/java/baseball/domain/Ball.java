@@ -1,7 +1,5 @@
 package baseball.domain;
 
-import baseball.view.InputView;
-
 public class Ball {
     int count;
 

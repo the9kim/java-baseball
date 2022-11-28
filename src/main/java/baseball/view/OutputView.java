@@ -20,19 +20,19 @@ public class OutputView {
 
     private static void printStrikeOnly(int strikeCount, int ballCount) {
         if (strikeCount > 0 && ballCount == 0) {
-            System.out.printf("%s"+STRIKE_COMMENT+"\n", strikeCount);
+            System.out.printf("%s" + STRIKE_COMMENT + "\n", strikeCount);
         }
     }
 
     private static void printBallOnly(int strikeCount, int ballCount) {
         if (strikeCount == 0 && ballCount > 0) {
-            System.out.printf("%s"+BALL_COMMENT+"\n", ballCount);
+            System.out.printf("%s" + BALL_COMMENT + "\n", ballCount);
         }
     }
 
     private static void printStrikeAndBall(int strikeCount, int ballCount) {
         if (strikeCount > 0 && ballCount > 0) {
-            System.out.printf("%s"+BALL_COMMENT+" %s"+STRIKE_COMMENT+"\n", ballCount, strikeCount);
+            System.out.printf("%s" + BALL_COMMENT + " %s" + STRIKE_COMMENT + "\n", ballCount, strikeCount);
         }
     }
 

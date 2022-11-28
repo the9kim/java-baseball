@@ -26,6 +26,6 @@ class GameNumberTest {
 
         System.out.println(gameNumber.getNumber());
 
-        assertThat(gameNumber.getNumber()).isBetween(1,9);
+        assertThat(gameNumber.getNumber()).isBetween(1, 9);
     }
 }

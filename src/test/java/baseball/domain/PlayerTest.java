@@ -28,7 +28,7 @@ class PlayerTest {
         Player player = new Player();
         List<GameNumber> playerNumbers = player.makePlayerNumbers(input);
 
-        for(GameNumber eachNum : player.getPlayerNumbers()) {
+        for (GameNumber eachNum : playerNumbers) {
             System.out.println(eachNum.getNumber());
         }
         assertThat(player.getPlayerNumbers().size()).isEqualTo(3);

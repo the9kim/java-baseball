@@ -19,7 +19,7 @@ public class RandomNumbers {
         return randomGameNumbers;
     }
 
-    private int makeGameNumber(){
+    private int makeGameNumber() {
         int randomNumber = createRandomNumber();
         if (!validateDuplication(randomNumber)) {
             return 0;
@@ -44,23 +44,5 @@ public class RandomNumbers {
 
     public List<GameNumber> getRandomNumbers() {
         return randomGameNumbers;
-    }
-
-    public boolean findNumber(int number) {
-        for (GameNumber randomGameNumber : randomGameNumbers) {
-            if (randomGameNumber.getNumber() == number) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public int getIndex(int number) {
-        for (GameNumber randomGameNumber : randomGameNumbers) {
-            if (randomGameNumber.getNumber() == number) {
-                return randomGameNumbers.indexOf(randomGameNumber);
-            }
-        }
-        return -1;
     }
 }
