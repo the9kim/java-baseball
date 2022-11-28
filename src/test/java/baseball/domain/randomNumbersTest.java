@@ -7,17 +7,18 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class RandomNumbersTest {
+class randomNumbersTest {
 
-    Number number;
+    GameNumber gameNumber;
 
     @DisplayName("랜덤 숫자 세자리가 정상적으로 출력된다")
     @Test
     void makeRandomNumbers() {
         RandomNumbers randomNumbers = new RandomNumbers();
-        List<Number> randomNumList = randomNumbers.getRandomNumbers();
-        for (Number number : randomNumList) {
-            System.out.println(number.getNumber());
+        randomNumbers.makeRandomNumbers();
+        List<GameNumber> randomNumList = randomNumbers.getRandomNumbers();
+        for (GameNumber gameNumber : randomNumList) {
+            System.out.println(gameNumber.getNumber());
         }
 
         assertThat(randomNumbers.getRandomNumbers().size()).isEqualTo(3);

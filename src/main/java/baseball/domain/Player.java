@@ -6,11 +6,12 @@ import java.util.List;
 
 public class Player {
 
-    List<Number> playerNumbers = new ArrayList<>();
+    List<GameNumber> playerGameNumbers = new ArrayList<>();
 
-    public Player(String inputNumber) {
+    public List<GameNumber> makePlayerNumbers(String inputNumber) {
        List<String> splitNumber = splitInputNumber(inputNumber);
        getNumbers(splitNumber);
+       return playerGameNumbers;
     }
 
     private List<String> splitInputNumber(String inputNumber) {
@@ -20,29 +21,29 @@ public class Player {
 
     private void getNumbers(List<String> splitNumbers) {
         for (String eachNumber : splitNumbers) {
-            Number number = makeNumber(eachNumber);
-            if (!validateDuplication(number)) {
+            GameNumber gameNumber = makeNumber(eachNumber);
+            if (!validateDuplication(gameNumber)) {
                 throw new IllegalArgumentException("[ERROR] 중복 숫자는 입력할 수 없다 짜샤");
             }
-            playerNumbers.add(number);
+            playerGameNumbers.add(gameNumber);
         }
     }
 
-    private boolean validateDuplication(Number number) {
-        for (Number eachNumber : playerNumbers) {
-            if (eachNumber.getNumber() == number.getNumber()) {
+    private boolean validateDuplication(GameNumber gameNumber) {
+        for (GameNumber eachGameNumber : playerGameNumbers) {
+            if (eachGameNumber.getNumber() == gameNumber.getNumber()) {
                 return false;
             }
         }
         return true;
     }
 
-    private Number makeNumber(String eachNumber) {
-        Number number = new Number(eachNumber);
-        return number;
+    private GameNumber makeNumber(String eachNumber) {
+        GameNumber gameNumber = new GameNumber(eachNumber);
+        return gameNumber;
     }
 
-    public List<Number> getPlayerNumbers() {
-        return playerNumbers;
+    public List<GameNumber> getPlayerNumbers() {
+        return playerGameNumbers;
     }
 }

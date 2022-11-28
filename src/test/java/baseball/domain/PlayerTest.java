@@ -3,6 +3,8 @@ package baseball.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -12,9 +14,10 @@ class PlayerTest {
     @Test
     void makePlayerWithWrongInput() {
         String inputNumber = "556";
+        Player player = new Player();
 
         assertThatThrownBy(() -> {
-            new Player(inputNumber);
+            player.makePlayerNumbers(inputNumber);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -22,10 +25,10 @@ class PlayerTest {
     @Test
     void makePlayerWithCorrectInput() {
         String input = "247";
+        Player player = new Player();
+        List<GameNumber> playerNumbers = player.makePlayerNumbers(input);
 
-        Player player = new Player(input);
-
-        for(Number eachNum : player.getPlayerNumbers()) {
+        for(GameNumber eachNum : player.getPlayerNumbers()) {
             System.out.println(eachNum.getNumber());
         }
         assertThat(player.getPlayerNumbers().size()).isEqualTo(3);

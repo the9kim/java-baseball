@@ -41,5 +41,4 @@ public class OutputView {
             System.out.println(NOTHING_COMMENT);
         }
     }
-
 }

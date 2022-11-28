@@ -160,9 +160,9 @@ BUILD SUCCESSFUL in 0s
 ```java
 List<Integer> computer = new ArrayList<>();
 while (computer.size() < 3) {
-    int randomNumber = Randoms.pickNumberInRange(1, 9);
-    if (!computer.contains(randomNumber)) {
-        computer.add(randomNumber);
+    int randomGameNumber = Randoms.pickNumberInRange(1, 9);
+    if (!computer.contains(randomGameNumber)) {
+        computer.add(randomGameNumber);
     }
 }
 ```

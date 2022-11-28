@@ -1,19 +1,17 @@
 package baseball.domain;
 
-import net.bytebuddy.asm.Advice;
-
-public class Number {
+public class GameNumber {
 
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 9;
 
     private int number;
 
-    public Number(int number) {
+    public GameNumber(int number) {
         this.number = number;
     }
 
-    public Number(String number) {
+    public GameNumber(String number) {
         validateNumber(number);
         this.number = Integer.parseInt(number);
     }

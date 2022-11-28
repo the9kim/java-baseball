@@ -9,13 +9,9 @@ public class RandomNumbers {
     private static final int MAX_NUMBER = 10;
     private static final int MAX_SIZE_OF_NUMBERS = 3;
     private List<Integer> tempRandomNumber = new ArrayList<>();
-    private final List<Number> randomNumbers = new ArrayList<>();
+    private final List<GameNumber> randomGameNumbers = new ArrayList<>();
 
-    public RandomNumbers() {
-        makeRandomNumbers();
-        }
-
-    public void makeRandomNumbers() {
+    public List<GameNumber> makeRandomNumbers() {
         int sizeOfNumber = 0;
 
         while (sizeOfNumber < MAX_SIZE_OF_NUMBERS) {
@@ -24,14 +20,15 @@ public class RandomNumbers {
                 continue;
             }
             tempRandomNumber.add(randomNumber);
-            Number number = new Number(randomNumber);
-            randomNumbers.add(number);
+            GameNumber gameNumber = new GameNumber(randomNumber);
+            randomGameNumbers.add(gameNumber);
             sizeOfNumber++;
         }
+        return randomGameNumbers;
     }
 
     private int createRandomNumber() {
-        int randomNumber = (int) ((Math.random()*(MAX_NUMBER-MIN_NUMBER))+MIN_NUMBER);
+        int randomNumber = (int) ((Math.random() * (MAX_NUMBER - MIN_NUMBER)) + MIN_NUMBER);
         return randomNumber;
     }
 
@@ -42,7 +39,25 @@ public class RandomNumbers {
         return true;
     }
 
-    public List<Number> getRandomNumbers() {
-        return randomNumbers;
+    public List<GameNumber> getRandomNumbers() {
+        return randomGameNumbers;
+    }
+
+    public boolean findNumber(int number) {
+        for (GameNumber randomGameNumber : randomGameNumbers) {
+            if (randomGameNumber.getNumber() == number) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int getIndex(int number) {
+        for (GameNumber randomGameNumber : randomGameNumbers) {
+            if (randomGameNumber.getNumber() == number) {
+                return randomGameNumbers.indexOf(randomGameNumber);
+            }
+        }
+        return -1;
     }
 }
