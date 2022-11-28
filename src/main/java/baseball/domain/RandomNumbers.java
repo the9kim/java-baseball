@@ -13,18 +13,20 @@ public class RandomNumbers {
 
     public List<GameNumber> makeRandomNumbers() {
         int sizeOfNumber = 0;
-
         while (sizeOfNumber < MAX_SIZE_OF_NUMBERS) {
-            int randomNumber = createRandomNumber();
-            if (!validateDuplication(randomNumber)) {
-                continue;
-            }
-            tempRandomNumber.add(randomNumber);
-            GameNumber gameNumber = new GameNumber(randomNumber);
-            randomGameNumbers.add(gameNumber);
-            sizeOfNumber++;
+            sizeOfNumber += makeGameNumber();
         }
         return randomGameNumbers;
+    }
+
+    private int makeGameNumber(){
+        int randomNumber = createRandomNumber();
+        if (!validateDuplication(randomNumber)) {
+            return 0;
+        }
+        GameNumber gameNumber = new GameNumber(randomNumber);
+        randomGameNumbers.add(gameNumber);
+        return 1;
     }
 
     private int createRandomNumber() {
@@ -36,6 +38,7 @@ public class RandomNumbers {
         if (tempRandomNumber.contains(number)) {
             return false;
         }
+        tempRandomNumber.add(number);
         return true;
     }
 

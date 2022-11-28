@@ -11,7 +11,6 @@ public class Controller {
 
     RandomNumbers randomNumbers = new RandomNumbers();
     Player player = new Player();
-    Result result = new Result();
     Judge judge = new Judge();
 
     public void run() {
