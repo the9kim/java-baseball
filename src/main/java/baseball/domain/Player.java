@@ -10,9 +10,9 @@ public class Player {
     private List<GameNumber> playerGameNumbers;
 
     public List<GameNumber> makePlayerNumbers(String inputNumber) {
-       List<String> splitNumber = splitInputNumber(inputNumber);
-       getNumbers(splitNumber);
-       return playerGameNumbers;
+        List<String> splitNumber = splitInputNumber(inputNumber);
+        getNumbers(splitNumber);
+        return playerGameNumbers;
     }
 
     private List<String> splitInputNumber(String inputNumber) {
@@ -29,7 +29,6 @@ public class Player {
         if (!validatePlayerNumbers()) {
             throw new IllegalArgumentException();
         }
-
     }
 
     private boolean validatePlayerNumbers() {
@@ -47,7 +46,6 @@ public class Player {
         return playerGameNumbers.size() == 3;
     }
 
-
     private GameNumber makeNumber(String eachNumber) {
         GameNumber gameNumber = new GameNumber(eachNumber);
         return gameNumber;
@@ -56,5 +54,4 @@ public class Player {
     public List<GameNumber> getPlayerNumbers() {
         return playerGameNumbers;
     }
-
 }

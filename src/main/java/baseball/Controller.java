@@ -24,12 +24,12 @@ public class Controller {
     }
 
     private void playGame(List<GameNumber> randomNumbers) {
+        OutputView.printStartMessage();
         while (true) {
             List<GameNumber> playerNumbers = getPlayerNumber();
             Result result = getResult(randomNumbers, playerNumbers);
             if (!retry(result)) {
                 break;
-
             }
         }
     }
@@ -48,6 +48,7 @@ public class Controller {
 
     private boolean retry(Result result) {
         if (result.checkAnswer()) {
+            OutputView.printEndMessage();
             String retryInput = InputView.readRetryDecision();
             validateRetryInput(retryInput);
             checkRetryDecision(retryInput);

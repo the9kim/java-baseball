@@ -8,6 +8,10 @@ public class OutputView {
     private static final String BALL_COMMENT = "볼";
     private static final String NOTHING_COMMENT = "낫싱";
 
+    public static void printStartMessage() {
+        System.out.println("숫자 야구 게임을 시작합니다.");
+    }
+
     public static void printGameResult(Result result) {
         int strikeCount = result.getStrike().getStrikeCount();
         int ballCount = result.getBall().getBallCount();
@@ -40,5 +44,9 @@ public class OutputView {
         if (nothingCount) {
             System.out.println(NOTHING_COMMENT);
         }
+    }
+
+    public static void printEndMessage() {
+        System.out.println("3개의 숫자를 모두 맞추셨습니다! 게임 종료");
     }
 }
