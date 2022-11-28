@@ -5,12 +5,10 @@ public class Result {
     private final Ball ball = new Ball();
     private final Nothing nothing = new Nothing();
 
-    public void updateResult(int strikeCount, int ballCount) {
+    public void updateResult(int strikeCount, int ballCount, boolean nothingCount) {
         strike.updateStrikeCount(strikeCount);
         ball.updateBallCount(ballCount);
-        if (strikeCount == 0 && ballCount == 0) {
-            nothing.updateNothing();
-        }
+        nothing.updateNothing(nothingCount);
     }
 
     public Strike getStrike() {

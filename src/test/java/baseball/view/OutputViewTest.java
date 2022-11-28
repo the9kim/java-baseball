@@ -20,7 +20,7 @@ class OutputViewTest {
     @Test
     void printStrikeCountOnly() {
 
-        result.updateResult(3, 0);
+        result.updateResult(3, 0, false);
 
         OutputView.printGameResult(result);
     }
@@ -29,7 +29,7 @@ class OutputViewTest {
     @Test
     void printBallCountOnly() {
 
-        result.updateResult(0, 2);
+        result.updateResult(0, 2, false);
 
         OutputView.printGameResult(result);
     }
@@ -38,7 +38,7 @@ class OutputViewTest {
     @Test
     void printStrikeAndBallCount() {
 
-        result.updateResult(1, 2);
+        result.updateResult(1, 2, false);
 
         OutputView.printGameResult(result);
     }
@@ -47,7 +47,7 @@ class OutputViewTest {
     @Test
     void printNotingCount() {
 
-        result.updateResult(0, 0);
+        result.updateResult(0, 0, true);
 
         OutputView.printGameResult(result);
     }

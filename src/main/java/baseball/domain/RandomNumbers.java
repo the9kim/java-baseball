@@ -9,7 +9,7 @@ public class RandomNumbers {
     private static final int MAX_NUMBER = 10;
     private static final int MAX_SIZE_OF_NUMBERS = 3;
     private List<Integer> tempRandomNumber = new ArrayList<>();
-    private final List<GameNumber> randomGameNumbers = new ArrayList<>();
+    private List<GameNumber> randomGameNumbers = new ArrayList<>();
 
     public List<GameNumber> makeRandomNumbers() {
         int sizeOfNumber = 0;
@@ -44,5 +44,10 @@ public class RandomNumbers {
 
     public List<GameNumber> getRandomNumbers() {
         return randomGameNumbers;
+    }
+
+    public void resetRandomNumber() {
+        randomGameNumbers = new ArrayList<>();
+        tempRandomNumber = new ArrayList<>();
     }
 }

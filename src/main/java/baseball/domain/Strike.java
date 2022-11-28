@@ -1,7 +1,8 @@
 package baseball.domain;
 
 public class Strike {
-    int count;
+    private static final int DEFAULT_COUNT = 0;
+    private int count;
 
     public void updateStrikeCount(int count) {
         this.count = count;

@@ -3,10 +3,11 @@ package baseball.domain;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class Player {
 
-    List<GameNumber> playerGameNumbers = new ArrayList<>();
+    private List<GameNumber> playerGameNumbers;
 
     public List<GameNumber> makePlayerNumbers(String inputNumber) {
        List<String> splitNumber = splitInputNumber(inputNumber);
@@ -20,23 +21,32 @@ public class Player {
     }
 
     private void getNumbers(List<String> splitNumbers) {
+        playerGameNumbers = new ArrayList<>();
         for (String eachNumber : splitNumbers) {
             GameNumber gameNumber = makeNumber(eachNumber);
-            if (!validateDuplication(gameNumber)) {
-                throw new IllegalArgumentException("[ERROR] 중복 숫자는 입력할 수 없다 짜샤");
-            }
             playerGameNumbers.add(gameNumber);
         }
+        if (!validatePlayerNumbers()) {
+            throw new IllegalArgumentException();
+        }
+
     }
 
-    private boolean validateDuplication(GameNumber gameNumber) {
-        for (GameNumber eachGameNumber : playerGameNumbers) {
-            if (eachGameNumber.getNumber() == gameNumber.getNumber()) {
-                return false;
-            }
+    private boolean validatePlayerNumbers() {
+        if (!validateDuplication() || !validateSize()) {
+            return false;
         }
         return true;
     }
+
+    private boolean validateDuplication() {
+        return Set.copyOf(playerGameNumbers).size() == playerGameNumbers.size();
+    }
+
+    private boolean validateSize() {
+        return playerGameNumbers.size() == 3;
+    }
+
 
     private GameNumber makeNumber(String eachNumber) {
         GameNumber gameNumber = new GameNumber(eachNumber);
@@ -46,4 +56,5 @@ public class Player {
     public List<GameNumber> getPlayerNumbers() {
         return playerGameNumbers;
     }
+
 }

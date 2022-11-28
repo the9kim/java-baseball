@@ -12,9 +12,10 @@ class ResultTest {
     void updateNothingResult() {
         int strikeCount = 0;
         int ballCount = 0;
+        boolean nothingCount = true;
 
         Result result = new Result();
-        result.updateResult(strikeCount, ballCount);
+        result.updateResult(strikeCount, ballCount, nothingCount);
 
         assertThat(result.getNothing().checkNothing()).isTrue();
     }
@@ -24,9 +25,10 @@ class ResultTest {
     void updateResult() {
         int strikeCount = 1;
         int ballCount = 1;
+        boolean nothingCount = false;
 
         Result result = new Result();
-        result.updateResult(strikeCount, ballCount);
+        result.updateResult(strikeCount, ballCount,nothingCount);
 
         assertThat(result.getStrike().getStrikeCount()).isEqualTo(1);
         assertThat(result.getBall().getBallCount()).isEqualTo(1);

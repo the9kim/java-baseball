@@ -1,13 +1,15 @@
 package baseball.domain;
 
 public class Nothing {
-    boolean nothing;
+    private static final boolean DEFAULT_COUNT = false;
+    private boolean nothingCount;
 
-    public void updateNothing() {
-        this.nothing = true;
+    public void updateNothing(boolean nothingCount) {
+        this.nothingCount = nothingCount;
     }
 
     public boolean checkNothing() {
-        return nothing;
+        return nothingCount;
     }
+
 }

@@ -29,6 +29,7 @@ public class Controller {
             Result result = getResult(randomNumbers, playerNumbers);
             if (!retry(result)) {
                 break;
+
             }
         }
     }
@@ -63,6 +64,7 @@ public class Controller {
 
     private void checkRetryDecision(String retryInput) {
         if (retryInput.equals("1")) {
+            randomNumbers.resetRandomNumber();
             run();
         }
     }
