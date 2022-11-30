@@ -13,9 +13,6 @@ public class GameController {
     public void run() {
         do {
             GameNumber randomGameNumber = RandomNumberGenerator.generateRandomNumbers();
-            for (GameDigit a : randomGameNumber.getGameNumber()) {
-                System.out.print(a.getDigit());
-            }
             playGame(randomGameNumber);
         } while (InputController.getRetryDecision());
     }
