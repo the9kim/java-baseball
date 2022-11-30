@@ -33,7 +33,7 @@ public class OutputView {
     }
 
     private static void appendNothing(StringBuilder stringBuilder, Result result) {
-        if (w
+        if (result.getNothing().checkNothing()) {
             stringBuilder.append(NOTHING_COMMENT);
         }
     }
