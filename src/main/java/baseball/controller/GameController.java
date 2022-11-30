@@ -5,11 +5,14 @@ import baseball.domain.RandomNumberGenerator;
 
 public class GameController {
 
-    public static void run() {
+    InputController inputController;
+
+    public void run() {
             GameNumber randomGameNumber = RandomNumberGenerator.generateRandomNumbers();
             playGame(randomGameNumber);
     }
 
-    private static void playGame(GameNumber randomGameNumber) {
+    private void playGame(GameNumber randomGameNumber) {
+        GameNumber playerNumber = inputController.getPlayerNumber();
     }
 }

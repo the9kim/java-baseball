@@ -26,6 +26,37 @@ public class GameDigit {
         return gameDigitCache.get(digit);
     }
 
+    public static GameDigit of(String inputDigit) {
+        validate(inputDigit);
+        int digit = Integer.parseInt(inputDigit);
+        return gameDigitCache.get(digit);
+    }
+
+    private static void validate(String inputDigit) {
+        validateBlank(inputDigit);
+        validateDigit(inputDigit);
+        validateRange(inputDigit);
+    }
+
+    private static void validateBlank(String inputDigit) {
+        if (inputDigit.isBlank()) {
+            throw new IllegalArgumentException("공백은 입력할 수 없습니다.");
+        }
+    }
+
+    private static void validateDigit(String inputDigit) {
+        if (!Character.isDigit(inputDigit.charAt(0))) {
+            throw new IllegalArgumentException("[ERROR] 숫자가 아닙니다.");
+        }
+    }
+
+    private static void validateRange(String inputDigit) {
+        int digit = Integer.parseInt(inputDigit);
+        if (digit < MIN_NUMBER || digit > MAX_NUMBER) {
+            throw new IllegalArgumentException("[ERROR] 1-9 범위의 숫자가 아닙니다.");
+        }
+    }
+
     public int getDigit() {
         return digit;
     }
