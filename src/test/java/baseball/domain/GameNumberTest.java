@@ -21,7 +21,7 @@ class GameNumberTest {
 
         GameNumber gameNumber = GameNumber.of(randomNumbers);
         for (GameDigit digit : gameNumber.getGameNumber()) {
-            System.out.println(digit);
+            System.out.println(digit.getDigit());
             assertThat(digit.getDigit()).isBetween(1,3);
         }
     }
@@ -53,6 +53,25 @@ class GameNumberTest {
             System.out.println(System.identityHashCode(b));
         }
         assertThat(GameNumber.of(input)).isInstanceOf(GameNumber.class);
+    }
+
+    @DisplayName("랜덤 번호 및 사용자 번호 비교")
+    @Test
+    void compareNumbers() {
+        GameNumber randomNumber = RandomNumberGenerator.generateRandomNumbers();
+        GameNumber playerNumber = GameNumber.of("456");
+
+        Result result = randomNumber.compareNumbers(playerNumber);
+
+        for (GameDigit digit : randomNumber.getGameNumber()) {
+            System.out.println(digit.getDigit());}
+
+        System.out.println(result.getStrike().getCount());
+        System.out.println(result.getBall().getCount());
+        System.out.println(result.getNothing().checkNothing());
+
+        assertThat(result.getStrike().getCount()).isBetween(0,3);
+        assertThat(result.getBall().getCount()).isBetween(0,3);
     }
 
 }
