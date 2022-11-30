@@ -1,6 +1,5 @@
 package baseball.domain;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,7 +33,7 @@ public class RandomNumberGenerator {
     }
 
     private static void pickRandomNumbers() {
-        randomNumbers = randomNumbers.subList(0,NUMBER_SIZE);
+        randomNumbers = randomNumbers.subList(0, NUMBER_SIZE);
     }
 
 

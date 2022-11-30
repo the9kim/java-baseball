@@ -28,6 +28,6 @@ public class GameController {
             OutputView.printCountResult(result);
 
             answer = result.getAnswer();
-        } while(!answer);
+        } while (!answer);
     }
 }

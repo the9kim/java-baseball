@@ -2,8 +2,6 @@ package baseball.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.awt.desktop.SystemEventListener;
-
 public class InputView {
 
     public static String readInputNumber() {
