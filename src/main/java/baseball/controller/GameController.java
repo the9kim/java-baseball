@@ -1,8 +1,7 @@
 package baseball.controller;
 
-import baseball.domain.ComputerNumberMaker;
-import baseball.domain.Player;
-import baseball.domain.RandomNumberGenerator;
+import baseball.domain.*;
+import baseball.view.OutputView;
 
 import java.util.List;
 
@@ -15,10 +14,10 @@ public class GameController {
     }
 
     public void run() {
-        List<Integer> computerNumber = generateComputerNumber();
-        System.out.println(computerNumber);
-        Player player = playGame();
-
+        do {
+            List<Integer> computerNumber = generateComputerNumber();
+            playGame(computerNumber);
+        } while (inputController.checkRetry());
     }
 
     private List<Integer> generateComputerNumber() {
@@ -27,7 +26,11 @@ public class GameController {
         return computerNumber;
     }
 
-    private Player playGame() {
-        Player player = inputController.makePlayerNumber();
+    private void playGame(List<Integer> computerNumber) {
+        do {
+            Player player = inputController.makePlayerNumber();
+            Judge.getCount(computerNumber, player.getPlayerNumbers());
+            OutputView.printResult();
+        } while (!Judge.checkStrikes());
     }
 }

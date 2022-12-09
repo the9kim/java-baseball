@@ -54,4 +54,8 @@ public class Player {
             }
         }
     }
+
+    public List<Integer> getPlayerNumbers() {
+        return playerNumbers;
+    }
 }
